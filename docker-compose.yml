@@ -1,0 +1,17 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    container_name: web
+    tty: true
+    command: /usr/bin/wait-for-it.sh db:5432 -- /usr/src/app/bin/rails server -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/usr/src/app
+    depends_on:
+      - db

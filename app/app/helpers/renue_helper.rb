@@ -1,0 +1,2 @@
+module RenueHelper
+end
