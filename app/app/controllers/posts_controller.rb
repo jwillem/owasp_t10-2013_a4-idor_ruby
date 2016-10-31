@@ -44,6 +44,7 @@ class PostsController < ApplicationController
   def show
     id = params[:id]
     post = Post.find_by(id: id)
+    
     # if !post.published
     #   redirect_to 'posts#index'
     # else

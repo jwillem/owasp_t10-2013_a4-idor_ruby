@@ -30,8 +30,9 @@ Temporary Items
 *.rbc
 capybara-*.html
 .rspec
-/log
-/tmp
+*/log
+*/tmp
+*/tmp/cache
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system

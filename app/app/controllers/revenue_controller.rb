@@ -41,6 +41,7 @@ class RevenueController < ApplicationController
         if whitelist.has_key?(name)
           whitelist[name]
         else
+          # default
           "overview.pdf"
         end
     Rails.root.join('resources', filename)
