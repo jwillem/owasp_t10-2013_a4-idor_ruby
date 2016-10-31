@@ -14,6 +14,13 @@ class PostsController < ApplicationController
       end
   end
 
+  # GET /posts/1
+  # GET /posts/1.json
+  def show
+    id = params[:id]
+    Post.find_by(id: id)
+  end
+
   # GET /posts/new
   def new
     @post = Post.new
@@ -41,17 +48,17 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  def show
+  def show2
     id = params[:id]
-    post = Post.find_by(id: id)
-    
-    # if !post.published
-    #   redirect_to 'posts#index'
-    # else
-    #   post
-    # end
+    post = Post.find_by(id: id)    
+    if !user_signed_in? &&
+       !post.published
+      redirect_to 'posts#index'
+    else
+      post
+    end
   end
-  
+
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
